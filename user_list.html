@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>OA后台管理 - 用户管理</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    	.user_img{
+    		width: 40px;
+    		margin-top: 5px;
+    	}
+    	.img60{
+    		width: 60px;
+    	}
+    	.page-header{
+    		margin-top: 0;
+    	}
+    	.form-control{
+    		width: 40%;
+    	}
+    </style>
+  </head>
+  <body>
+  	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">OA后台管理</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;管理首页 <span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="user_list.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+	        <li><a href="Article_list.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
+	        <li><a href="tags.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+	        <li><a href="email.html"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;我的邮箱	</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><div><img src="images/touxiang.jpg" class="user_img img-circle"/></div></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#"><span class="glyphicon glyphicon-screenshot"></span> 前台首页</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-user"></span> 个人主页</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 个人设置</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span> 账户中心</a></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-heart"></span> 我的收藏</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#"><span class="glyphicon glyphicon-off"></span> 退出</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="list-group">
+					  <a href="user_list.html" class="list-group-item active">用户管理</a>
+					  <a href="user_search.html" class="list-group-item">用户搜索</a>
+					  <a href="#" class="list-group-item" data-toggle="modal" data-target="#myModal">添加用户</a>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="page-header">
+					  <h4>用户管理</h4>
+					</div>
+					<ul class="nav nav-tabs">
+					  <li role="presentation" class="active"><a href="user_list.html">用户管理</a></li>
+					  <li role="presentation"><a href="user_search.html">用户搜索</a></li>
+					  <li role="presentation"><a href="#" data-toggle="modal" data-target="#myModal">添加用户</a></li>
+					</ul>
+					<!--Modal-->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+					      </div>
+					      <form>
+						      <div class="modal-body">
+						        
+										  <div class="form-group">
+										    <label for="name">用户名</label>
+										    <input type="text" class="form-control" id="name" placeholder="请输入用户名">
+										  </div>
+										  <div class="form-group">
+										    <label for="pass">用户密码</label>
+										    <input type="password" class="form-control" id="pass" placeholder="请输入用户密码">
+										  </div>
+										  <div class="form-group">
+										    <label for="surepass">确认用户密码</label>
+										    <input type="password" class="form-control" id="surepass" placeholder="请确认用户密码">
+										  </div>
+										  <div class="form-group">
+										    <label for="email">请输入用户邮箱</label>
+										    <input type="email" class="form-control" id="email" placeholder="请输入用户邮箱">
+										  </div>
+										  <div class="form-group">
+										  	<label>所属用户组</label>
+										  	<select class="form-control">
+											  	<option value="">限制会员</option>
+											  	<option value="">限制会员</option>
+											  	<option value="">限制会员</option>
+											  	<option value="">限制会员</option>
+											  </select>
+										  </div>
+										  
+										
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						        <button type="button" class="btn btn-primary">添加</button>
+						      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>
+					<!--Modal-->
+					<table class="table table-responsive">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>用户名</th>
+								<th>邮箱</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>zhangsan</td>
+								<td>zhangsan@163.com</td>
+								<td>
+									<select class="form-control">
+										<option value="">操作</option>
+										<option value="">删除</option>
+										<option value="">修改</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>zhangsan</td>
+								<td>zhangsan@163.com</td>
+								<td>
+									<select class="form-control">
+										<option value="">操作</option>
+										<option value="">删除</option>
+										<option value="">修改</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>zhangsan</td>
+								<td>zhangsan@163.com</td>
+								<td>
+									<select class="form-control">
+										<option value="">操作</option>
+										<option value="">删除</option>
+										<option value="">修改</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>zhangsan</td>
+								<td>zhangsan@163.com</td>
+								<td>
+									<select class="form-control">
+										<option value="">操作</option>
+										<option value="">删除</option>
+										<option value="">修改</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>zhangsan</td>
+								<td>zhangsan@163.com</td>
+								<td>
+									<select class="form-control">
+										<option value="">操作</option>
+										<option value="">删除</option>
+										<option value="">修改</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>zhangsan</td>
+								<td>zhangsan@163.com</td>
+								<td>
+									<select class="form-control">
+										<option value="">操作</option>
+										<option value="">删除</option>
+										<option value="">修改</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>zhangsan</td>
+								<td>zhangsan@163.com</td>
+								<td>
+									<select class="form-control">
+										<option value="">操作</option>
+										<option value="">删除</option>
+										<option value="">修改</option>
+									</select>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<nav>
+					  <ul class="pagination pull-right">
+					    <li>
+					      <a href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li><a href="#">1</a></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
+					    <li><a href="#">4</a></li>
+					    <li><a href="#">5</a></li>
+					    <li>
+					      <a href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
